@@ -29,6 +29,7 @@
 		<!-- Tromas Color -->
 		<link rel="stylesheet" href="{{asset('client/css/skin/skin1.css')}}">
         <link rel="stylesheet" href="{{asset('client/new.css')}}">
+        <link rel="stylesheet" href="{{asset('client/custom_style.css')}}">
 
 		<!--<link rel="stylesheet" href="css/skin/skin2.css">-->
 		<!--<link rel="stylesheet" href="css/skin/skin3.css">-->
@@ -107,7 +108,7 @@
                                                 <li  class=" {{Request::is('livre') ? 'active' : '';}} "><a href="{{route('livre')}}">Livres</a></li>
                                                 <li  class=" {{Request::is('formation') ? 'active' : '';}} "><a href=" {{route('formation')}} ">Formations</a></li>
                                                 <li class=" {{Request::is('affiliation') ? 'active' : '';}} "><a href="{{route('affiliation')}}">Affiliation</a></li>
-                                                <li><a href="about-us.html">Se connecter</a></li>
+                                                <li class=" {{Request::is('client_login') ? 'active' : '';}} "><a href="{{ route('client_login') }}">Se connecter</a></li>
                                                 {{-- <li><a href="#">Projects<i class="fa fa-angle-down"></i></a>
                                                     <ul class="drop-down">
                                                         <li><a href="projects.html">Projects</a></li>

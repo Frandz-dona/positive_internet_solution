@@ -98,9 +98,8 @@ Positive Internet Solution | Ajout Livre
                   </div>
 
                   <div class="form-group mb-3">
-                    <label for="validationTextarea1">description</label>
-                    <textarea cols="80" class="ckeditor form-control @error('description') is-invalid @enderror" name="description" value="{{ old('description') }}" id="editeur" rows="10"></textarea>
-                    <div class="invalid-feedback"> Please enter a message in the textarea. </div>
+                    <label>description</label>
+                    <textarea cols="80" class="form-control" id="summary-ckeditor" name="summary-ckeditor" rows="10"></textarea>
                   </div> 
 
                   
@@ -120,9 +119,11 @@ Positive Internet Solution | Ajout Livre
 
 @push('livre')
 
-<script src="{{asset('admin/ckeditor/ckeditor.js')}}"></script>
+
+
+
 <script>
-    
+     
     toastr.options.preventDuplicates = true;
         $.ajaxSetup({
             headers:{

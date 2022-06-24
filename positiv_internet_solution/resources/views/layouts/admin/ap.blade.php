@@ -30,6 +30,7 @@
     <link rel="stylesheet" href=" {{asset('admin/assets/sweetalerte2/sweetalert2.min.css')}}">
      <link rel="stylesheet" href=" {{asset('admin/assets/toastr/toastr.min.css')}}">
      <link rel="stylesheet" href="{{asset('admin/css/dataTables.bootstrap4.css')}}">
+    <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
   </head>
 
   <body class="vertical  dark  ">
@@ -1179,7 +1180,9 @@
     <!-- datatable -->
     {{-- <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
     <script src='https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js'></script> --}}
-
+    <script>
+ 	    CKEDITOR.replace( 'summary-ckeditor' );
+    </script>
     @stack('categorie')
     @stack('admin')
     @stack('livre')

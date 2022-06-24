@@ -29,67 +29,91 @@ Positive Internet Solution | Nos formations
     </div>
 </section>
 <!--/ End Breadcrumbs -->
+	<!-- Start Project -->
+	<section id="projects" class="projects section single">
+		<div class="container">
+			<div class="row">
+				<div class="container col-xxl-8 px-4 py-5">
+					<div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+						<div class="col-lg-6">
+							<h1>formation nom</h1><br>
+							<p class="lead">description</p>
+							<ul style="display: flex; margin-top: 10px; margin-bottom: 30px;">
+								<li style="margin-right: 30px;"><i class="fa fa-graduation-cap"></i> Niveau </li>
+								<li><i class="fa fa-calendar"></i> date</li>
+								<li style="margin-left: 30px;"><i class="fa fa-money"></i>Euro</li>
+							</ul>
+							<div class="d-grid gap-2 d-md-flex justify-content-md-start">
+								<button class="btn_cta" onclick="clickDemarer()">COMMENCER</button>
+								<!-- <a class=" btn_cta_opacity">Télécharger le programme</a> -->
+							</div>
+						</div>
+						<div class="col-10 col-sm-8 col-lg-6">
+							<img src="{{asset('client/images/academi.jpg')}}" class="d-block mx-lg-auto img-fluid" alt="img" width="400" height="400" loading="lazy">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--/ End Project -->
 
-<!-- Start Blog -->
-<section id="blog-main" class="blog-main archive grid section" style="background-color: #fff;">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="section-title">
-                    <h1>Crypto news, suivez toutes les actualités</h1>
-                    <!-- <p> Fusce semper purus suscipit ultricies tincidunt. Nulla eget turpis ac leo euismod pharetra at nec diam. Etiam id purus lacus. Suspendisse ligula nulla, cursus non</p> -->
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="blog-main">
-                <div class="row">
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                        {{-- @if(!empty($courses))
-                        @foreach($courses as $course) --}}
-                        <div class="col-md-4 col-sm-4 col-xs-12">
-                            <!-- Single Post -->
-                            <div class="single-blog slider">
-                                <div class="blog-post">
-                                    <div class="blog-head">
-                                        {{-- <img src="{{url('https://pis-api.positiveinternetsolution.com/storage/'.$course->cover)}}" alt="#"> --}}
-                                        <a class="link" href="blog-single.html"><i class="fa fa-paper-plane"></i></a>
-                                    </div>
-                                    <div class="blog-info">
-                                        {{-- <h2><a href="{{route('course.show',$course->pluck)}}" style="color: #353535;"><?php echo substr($course->name, 0, 50); ?>...</a></h2> --}}
-                                        <br>
-                                        <div class="meta">
+	<!-- Start Services -->
+	<section id="services" class="courses-features section">
+		<div class="container">
+			<div class="row">
+				<!-- Single Service -->
+				<div class="col-md-6 col-sm-6 col-xs-12">
+					<div class="single-features">
+						<div class="icon"><i class="fa fa-laptop"></i></div>
+						<div class="icon two"><i class="fa fa-laptop"></i></div>
+						<h2><a href="#">Formation 100% en ligne</a></h2>
+						<p>Démarrez à tout moment votre nouvelle formation ! Disponible à temps partiel ? Pas de problème, étudiez à votre rythme.
+						</p>
+						<button class="btn_cta_opacity" style="margin-top: 15px; border: none;" onclick="clickAperçu()"> <b>Découvrir les détails</b></button>
+					</div>
+				</div>
+				<!--/ End Single Service -->
+				<!-- Single Service -->
+				<div class="col-md-6 col-sm-6 col-xs-12">
+					<div class="single-features">
+						<div class="icon"><i class="fa fa-lightbulb-o"></i></div>
+						<div class="icon two"><i class="fa fa-lightbulb-o"></i></div>
+						<h2><a href="#">Projets professionnalisants</a></h2>
+						<p>Apprenez les compétences clés de votre futur métier en validant des projets tirés de cas concrets.
+						</p>
+						<button class="btn_cta_opacity" style="margin-top: 15px; border: none;" onclick="clickProjets()"><b>Découvrir les projets</b></button>
 
-                                            {{-- <span><a href="#" class="badge badge-primary" style="background-color: rgb(0, 0, 255, 0.5); color: #fff; font-size: 14px; font-weight:100; padding: 8px 15px 8px 15px; border-radius: 4px;">{{$course->categorie_name}}</a></span>
-                                            <span style="margin-left: 1px; font-size: 12px;">{{strftime("%A %d %B %Y",strtotime($course->created_at))}}</span> --}}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--/ End Single Post -->
-                        </div>
-                        {{-- @endforeach
-                        @else --}}
-                        <div class="alert alert-warning" role="alert">
-                            Aucun post disponible pour le moment
-                        </div>
-                        {{-- @endif --}}
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12" style="margin-top: 10px;">
-                        <!-- Start Pagination -->
-                        <div class="pagination-main">
+					</div>
+				</div>
+				<!--/ End Single Service -->
+				<!-- Single Service -->
+				<div class="col-md-6 col-sm-6 col-xs-12">
+					<div class="single-features">
+						<div class="icon"><i class="fa fa-users"></i></div>
+						<div class="icon two"><i class="fa fa-users"></i></div>
+						<h2><a href="#">Accompagnement garantie</a></h2>
+						<p>Bénéficiez de sessions de mentorat hebdomadaires avec un expert du domaine.</p>
+						<button class="btn_cta_opacity" style="margin-top: 15px; border: none;" onclick="clickAccompagnement()"><b>Découvrir l'accompagnement</b></button>
+					</div>
+				</div>
+				<!--/ End Single Service -->
+				<!-- Single Service -->
+				<div class="col-md-6 col-sm-6 col-xs-12">
+					<div class="single-features">
+						<div class="icon"><i class="fa fa-graduation-cap"></i></div>
+						<div class="icon two"><i class="fa fa-graduation-cap"></i></div>
+						<h2><a href="#">certification garantie</a></h2>
+						<p>Bénéficiez de sessions de mentorat hebdomadaires avec un expert du métier.</p>
+						<button class="btn_cta_opacity" style="margin-top: 15px; border: none;" onclick="clickDemarer()"><b>Démarer maintenant</b></button>
+					</div>
+				</div>
+				<!--/ End Single Service -->
+			</div>
+		</div>
+	</section>
+	<!--/ End Services -->
 
-                        </div>
-                        <!--/ End Pagination -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!--/ End Blog -->
 
 <!-- Start Call-To-Action -->
 <section class="call-to-action">

@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Client;
 
-use App\Http\Controllers\Controller;
+use App\Models\Livre;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class ClientController extends Controller
 {
@@ -22,9 +23,12 @@ class ClientController extends Controller
         return view("interface_client.achat_vente_crypto");
     }
 
-    public function crypto_fortune()
+    public function livre()
     {
-        return view("interface_client.cryoto_fortune");
+        $livres = Livre::all();
+        return view("interface_client.livre", compact('livres'));
+
+       
     }
 
     public function affiliation()
@@ -65,5 +69,11 @@ class ClientController extends Controller
     public function crypto_actu()
     {
         return view('interface_client.crypto_actu');
+    }
+
+    public function livre_detail()
+    {
+        
+        return view('interface_client.livre_details');
     }
 }

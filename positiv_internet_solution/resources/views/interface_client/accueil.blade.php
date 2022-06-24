@@ -171,9 +171,9 @@ Positive Internet Solution | Accueil
             </div>
         </div>
         <br>
-        <p style="text-align: center">Actualités récentes sur les cryptomonaies, la blockchain et le web3.0</p>
+        <p style="text-align: center" style="font-size: 20px">Actualités récentes sur les cryptomonaies, la blockchain et le web3.0</p>
         <br>
-        <div class="more_price_link" align="center">
+        <div class="more_price_link" style="text-align: center">
             <a href="#" style="font-size: 1em; font-weight: bold;">VOIR PLUS D'ARTICLES</a>
         </div>
     </div>
@@ -193,13 +193,13 @@ Positive Internet Solution | Accueil
         <div class="row">
             <div class="col-md-6 col-sm-6 col-xs-12">
 
-                <img src="{{asset('client/images/livres/m1.png')}}" alt="" width="400" height="400">
+                <img src="{{asset('client/images/academi.jpg')}}" alt="" width="400" height="400">
             </div>
             <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="cc" style="text-align: center; padding: 1Opx;">
                     <h4>C est le moment pour développer vos propres compétences à la blockchain quelque soit votre niveau</h4>
                     <br>
-                    <p>Votre temps pour trouver des contenus GRATUITS et des formations sponsorisées à 40% des frais que vous soyez débutant ou confirmé, c'est maintenant !</p>
+                    <p style="font-size: 20px">Votre temps pour trouver des contenus GRATUITS et des formations sponsorisées à 40% des frais que vous soyez débutant ou confirmé, c'est maintenant !</p>
                     <br>
                     <div class="cc_btn">
                         <a href="#" class="btn_cta" style="margin-right: 10px;"><i class="fa fa-user-plus"></i> <b>S'inscrire</b></a> <a href="https://wa.me/22891325637" class="btn_cta"><i class="fa fa-whatsapp"></i> <b>Nous contacter</b></a>
@@ -224,7 +224,7 @@ Positive Internet Solution | Accueil
         </div>
         <div class="row">
             <div class="col-md-6 col-sm-6 col-xs-12">
-                <p>Découvrez notre stratégie qui permet de gagner 100€ par jour sans investissement dans les cryptomonnaies et que vous aussi
+                <p style="font-size: 20px">Découvrez notre stratégie qui permet de gagner 100€ par jour sans investissement dans les cryptomonnaies et que vous aussi
                     vous pouvez aisément appliquer.
                 </p>
                 <br>
@@ -254,11 +254,17 @@ Positive Internet Solution | Accueil
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="section-title">
+                    
                     <h1>Positive Business </h1>
                 </div>
             </div>
         </div>
         <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="cc" style="text-align: left;">
+                     <img src="{{asset('client/images/forum.jpg')}}" width="400" height="400" alt="">
+                </div>
+            </div>
             <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="call-to-main">
                     <h2><span>Restez informé </span></h2>
@@ -267,23 +273,10 @@ Positive Internet Solution | Accueil
                     <a href="https://t.me/joinchat/dvWirhWMXqI4MWU0" class="btn_cta" style="font-size: 1em; font-weight: 700;"> <i class="fa fa-send"></i> <b> Rejoindre la communauté</b></a>
                 </div>
             </div>
-            <div class="col-md-6 col-sm-6 col-xs-12">
-                <div class="cc" style="text-align: left;">
-                    <img src="{{asset('client/images/livres/m1.png')}}" width="400" height="400" alt="">
-                </div>
-
-            </div>
         </div>
     </div>
 </section>
 <!--/ End call to action livre -->
-
-
-
-@endsection
-
-
-@section('modal')
 
 <!-- Modal crypto -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -306,7 +299,32 @@ Positive Internet Solution | Accueil
     </div>
 </div>
 
+
 @endsection
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

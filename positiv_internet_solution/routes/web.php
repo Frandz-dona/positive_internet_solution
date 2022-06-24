@@ -26,7 +26,7 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', [ClientController::class, 'index'])->name('home');
 Route::get('/service', [ClientController::class, 'service'])->name("service");
 Route::get('/achat_vente_crypto', [ClientController::class, 'achat_vente'])->name('achat_vente_crypto');
-Route::get('/livre', [ClientController::class, 'crypto_fortune'])->name('livre');
+Route::get('/livre', [ClientController::class, 'livre'])->name('livre');
 Route::get('/affiliation', [ClientController::class, 'affiliation'])->name('affiliation');
 Route::get('/formation', [ClientController::class, 'formation'])->name('formation');
 Route::get('/a_propos', [ClientController::class, 'a_propos'])->name('a_propos');
@@ -35,6 +35,8 @@ Route::get('/positive_academy', [ClientController::class, 'positive_academy'])->
 Route::get('/mention_legale', [ClientController::class, 'mention_legale'])->name('mention_legale');
 Route::get('/condition_de_vente', [ClientController::class, 'condition_de_vente'])->name('condition_de_vente');
 Route::get('/crypto_actu', [ClientController::class, 'crypto_actu'])->name('crypto_actu');
+Route::get('/livre_detail', [ClientController::class, 'livre_detail'])->name('livre_detail');
+
 //end route client
 
 
@@ -82,3 +84,8 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::post('/livreDelete', [LivreController::class,'livreDelete'])->name('livreDelete');
     });
 });
+
+
+//client authentification
+Route::view('/client_login','interface_client/auth.login')->name('client_login');
+Route::view('/client_register', 'interface_client/auth.register')->name('client_register');

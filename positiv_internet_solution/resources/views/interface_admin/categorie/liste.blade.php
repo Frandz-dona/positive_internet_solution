@@ -243,7 +243,7 @@ Positive Internet Solution | Liste Categorie
         </div>
       </div>
 
-
+      
 
 <!-- Modification modal -->
       <div class="modal fade" id="categorieEdit" tabindex="-1" role="dialog" aria-labelledby="varyModalLabel" aria-hidden="true">

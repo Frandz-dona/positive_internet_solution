@@ -1,0 +1,55 @@
+#crypto_change {
+    color: green;
+}
+
+#cypto_btn {
+    background-color: #ddb651;
+    width: 100px;
+    height: 30px;
+    color: balck;
+    font-weight: 600;
+}
+
+#call_toaction_a {
+    font-weight: 500;
+}
+
+.login_btn {
+    text-align: center;
+}
+
+.login_btn button {
+    margin-top: 20px;
+    background-color: #ffa300;
+    color: #212833;
+    font-weight: 400;
+}
+
+#payment-form {
+    margin-bottom: 10px;
+}
+
+#payment-form form .btn {
+    font-size: 15px;
+    font-weight: 600;
+    background-color: rgb(255, 163, 0, 0.1);
+    border: 1px solid #ff3300;
+    color: #0a1a2d;
+    box-shadow: none;
+}
+
+#payment-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#payment-form form .btn:hover {
+    background: #ff3300;
+    color: #fff;
+    border: none;
+}
+
+#info-text {
+    margin-bottom: 20px;
+}

@@ -44,6 +44,8 @@ Positive Internet Solution | Crypto Fortune
 
         <div class="row">
             <!-- Single Service -->
+            @if($livres)
+            @foreach ($livres as $livre)
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <a href=" {{route('livre')}} ">
                     <div class="single-team one default">
@@ -85,6 +87,8 @@ Positive Internet Solution | Crypto Fortune
                     </div>
                 </a>
             </div>
+            @endforeach
+            @endif
             <!--/ End Single Service -->
             <!-- Single Service -->
 

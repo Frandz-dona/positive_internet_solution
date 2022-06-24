@@ -301,8 +301,8 @@ Positive Internet Solution | Liste Livre
                           <h5 class="card-title">description</h5>
                           <p></p>
                           <!-- Create the editor container -->
-                          <div id="editor" style="min-height:100px;">
-                            <textarea class="form-control" id="edescription" placeholder="Take a note here" required="" rows="3" type="text" class="form-control @error('description') is-invalid @enderror" name="description" value="{{ old('description') }}" required autocomplete="description" autofocus placeholder="description" ></textarea>
+                          <div style="min-height:100px;">
+                            <textarea class="ckeditor" id="editor" placeholder="Take a note here" required="" rows="3" type="text" class="form-control @error('description') is-invalid @enderror" name="description" value="{{ old('description') }}" required autocomplete="description" autofocus placeholder="description" ></textarea>
                           </div>
                           <div class="invalid-feedback"> Please enter a message in the textarea. </div>
                         </div>
