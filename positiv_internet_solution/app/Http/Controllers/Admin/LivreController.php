@@ -20,7 +20,8 @@ class LivreController extends Controller
     public function index()
     {
         $livres = Livre::all();
-        return view('interface_admin/livre.liste', compact('livres'));
+        $categories = Categorie::all();
+        return view('interface_admin/livre.liste', compact('livres', 'categories'));
     }
 
     /**
@@ -43,7 +44,7 @@ class LivreController extends Controller
 
     public function store(Request $request)
     {
-        dd($request->all());
+        // dd($request->all());
 
         $validator= Validator::make($request->all(),[
             'livre_nom'=>'required|string',
@@ -52,7 +53,7 @@ class LivreController extends Controller
             'prix_numerique'=>'',
             'prix_papier'=>'',
             'prix_promo'=>'',
-            'categorie'=>'required|categorie',
+            'categorie_id'=>'required|categorie',
             'date_sortie'=>'required|date_format:Y-m-d',
             'image_principale'=>'required|image',
             'fichier_livre'=>'required|fichier',
@@ -84,7 +85,7 @@ class LivreController extends Controller
                 $livre->livre_prix_version_num = $request->prix_numerique;
                 $livre->livre_prix_version_pap = $request->prix_papier;
                 $livre->livre_prix_promo = $request->prix_promo;
-                $livre->categorie_id = $request->categorie;
+                $livre->categories_id = $request->categorie_id;
                 $livre->livre_date_sortie = $request->date_sortie;
                 $livre->livre_image = $file_name_image;
                 $livre->livre_fichier = $file_name_fichier;

@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class Admin extends Authenticatable
+class Client extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -18,13 +18,13 @@ class Admin extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'admin_name',
-        'admin_prenom',
+        'client_name',
         'email',
         'password',
-        'admin_telephone',
-        'admin_role',
-        'admin_status'
+        'client_telephone',
+        'client_status',
+        'pays',
+        'code_affiliation',
     ];
 
     /**

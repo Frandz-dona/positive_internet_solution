@@ -60,7 +60,7 @@ Positive Internet Solution | Ajout Livre
                     <div class="col-md-3 mb-3">
                     
                       <label for="role">categories</label>
-                        <select class="custom-select" id="custom-select" name='categorie'>
+                        <select class="custom-select" id="custom-select" name='categorie_id'>
                             <option selected>selectionner une categorie</option>
                             @foreach($categories as $categorie)
                             <option value="{{$categorie->id}}">{{$categorie->categorie_name}}</option>
@@ -99,7 +99,7 @@ Positive Internet Solution | Ajout Livre
 
                   <div class="form-group mb-3">
                     <label>description</label>
-                    <textarea cols="80" class="form-control" id="summary-ckeditor" name="summary-ckeditor" rows="10"></textarea>
+                    <textarea cols="80" class="form-control" id="summary-ckeditor" name="description" rows="10"></textarea>
                   </div> 
 
                   

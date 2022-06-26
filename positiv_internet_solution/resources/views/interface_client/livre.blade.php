@@ -47,16 +47,16 @@ Positive Internet Solution | Crypto Fortune
             @if($livres)
             @foreach ($livres as $livre)
             <div class="col-md-4 col-sm-6 col-xs-12">
-                <a href=" {{route('livre')}} ">
+                <a href="{{route('livre_detail')}} ">
                     <div class="single-team one default">
                         <!-- Team Head -->
                         <div class="t-head">
-                            <a href="{{route('livre')}}">
-                                <img src="{{asset('client/images/livres/m1.png')}}" alt="">
+                            <a href="{{route('livre_detail')}}">
+                                <img src="/storage/files/{{$livre->livre_image}}" alt="">
                             </a>
                             <div class="t-hover">
                                 <ul class="t-social">
-                                    <li><a href="#"><i class="fa fa-eye"></i></a></li>
+                                    <li><a href="{{route('livre_detail')}}"><i class="fa fa-eye"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -65,12 +65,12 @@ Positive Internet Solution | Crypto Fortune
                             <div class="t-icon">
                                 <a href="#team1"><i class="fa fa-share"></i></a>
                             </div>
-                            @if(1==2)
-                            <h2 class="t-name" style="text-align: left;"><a href="" style="color: #353535;">Gratuit</a></h2>
+                            @if($livre->livre_prix_promo)
+                            <h2 class="t-name" style="text-align: left;"><a href="{{route('livre_detail')}}" style="color: #353535;"> {{$livre->livre_prix_promo}}€</a></h </a></h2>
                             @else
-                            <h2 class="t-name" style="text-align: left;"><a href="" style="color: #353535;">€</a></h2>
+                            <h2 class="t-name" style="text-align: left;"><a href="{{route('livre_detail')}}" style="color: #353535;"> {{$livre->livre_prix_version_pap}} €</a></h2>
                             @endif
-                            <p class="what" style="margin-top: 5px;"><a href="" style="color: #353535;"><?php echo substr("Crypto", 0, 60); ?>...</a></p>
+                            <p class="what" style="margin-top: 5px;"><a href="{{route('livre_detail')}}" style="color: #353535;"><?php echo substr($livre->livre_description, 0, 1000); ?>...</a></p>
                             <div class="team-kpi-stars">
                                 <i class="fa fa-star" style=" color: #FFA300;"></i>
                                 <i class="fa fa-star" style=" color: #FFA300;"></i>
@@ -80,8 +80,8 @@ Positive Internet Solution | Crypto Fortune
                             </div>
                             <div class="meta" style="margin-top: 10px;">
                                 <?php setlocale(LC_TIME, 'fr_FR.utf8', 'fra'); ?>
-                                <span><a href="#" class="badge badge-primary" style="background-color: rgb(0, 0, 255, 0.5); color: #fff; font-size: 14px; font-weight:100; padding: 8px 15px 8px 15px; border-radius: 4px;">categorie</a></span>
-                                <span style="margin-left: 1px; font-size: 12px;">publié le</span>
+                                <span><a href="#" class="badge badge-primary" style="background-color: rgb(0, 0, 255, 0.5); color: #fff; font-size: 14px; font-weight:100; padding: 8px 15px 8px 15px; border-radius: 4px;"> {{$livre->categories->categorie_name}} </a></span>
+                                <span style="margin-left: 1px; font-size: 12px;">publié le {{$livre->livre_date_sortie}}</span>
                             </div>
                         </div>
                     </div>

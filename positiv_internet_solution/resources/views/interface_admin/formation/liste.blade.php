@@ -1,6 +1,6 @@
 @extends('layouts/admin.ap')
 @section('title')
-Positive Internet Solution | Liste Livre
+Positive Internet Solution | Liste formation
 @endsection
 
 
@@ -12,8 +12,8 @@ Positive Internet Solution | Liste Livre
       <div class="container-fluid">
         <div class="row justify-content-center">
           <div class="col-12">
-            <h2 class="page-title">Liste Des Livres</h2>
-            <a class="btn mb-2 btn-outline-secondary" href="{{route('admin.livre_page_ajout')}}">AJOUTER LIVRE</a>
+            <h2 class="page-title">Liste Des formations</h2>
+            <a class="btn mb-2 btn-outline-secondary" href="{{route('admin.formation_ajout')}}">AJOUTER FORMATION</a>
             <div class="row">
 
              @if(Session::get('success'))
@@ -35,69 +35,52 @@ Positive Internet Solution | Liste Livre
                     <table class="table datatables table-bordered table-hover mb-0" id="dataTable-1">
                       <thead>
                         <tr >
-                          <th>Nom du livre</th>
+                          <th>Titre formation</th>
                           {{-- <th>Nombre de pages</th> --}}
-                          <th>Prix numerique</th>
-                          <th>Prix papier</th>
+                          <th>Pirx</th>
+                          
                           {{-- <th>prix promo</th> --}}
-                          <th>Date sortie</th>
+                          <th>Auteur</th>
                           <th>Image</th>
-                          <th>Fichier</th>
                           <th>Etat</th>
                           <th>Action</th>
                         </tr>
                       </thead>
                       <tbody>
-                         @foreach ($livres as $livre)
+                        @if($formations)
+                         @foreach ($formations as $formation)
                         <tr id="$id">
-                          <td> {{$livre->livre_nom}} </td>
+                          <td> {{$formation->titre_fromation}} </td>
                           {{-- <td> {{$livre->livre_nb_page}} </td> --}}
-                          <td> {{$livre->livre_prix_version_num}} </td>
-                          <td> {{$livre->livre_prix_version_pap}} </td>
-                          {{-- <td> {{$livre->livre_prix_promo}} </td> --}}
-                          <td> {{$livre->livre_date_sortie}} </td>
+                          <td> {{$formation->prix_formation}} </td>
+                          <td> {{$formation->auteur_formation}} </td>
                           <td>
                             <div class="avatar avatar-md">
-                                <img src="/storage/files/{{$livre->livre_image}}" alt="..." class="avatar-img rounded-circle">
+                                <img src="" alt="..." class="avatar-img rounded-circle">
                               </div>
                               {{-- {{$livre->livre_image}} --}}
                             </td>
-                          <td>
-                               <a href="http://{{$livre->livre_fichier}}" target="_blank" rel="noopener noreferrer">
-                               <div class="avatar avatar-md">
-                                    <img src="./assets/avatars/fichier.jpg" alt="..." class="avatar-img rounded-circle">
-                                </div>
-                               </a> 
-                               
-                                {{-- {{$livre->livre_fichier}} --}}
-                          </td>
-                          <td>
-                            @if($livre->livre_status == 1)
+                            <td>
+                            @if($formation->status_formation ==1 )
                                <div class="custom-control custom-switch">
-                                   <button class="btn btn-primary" onclick="editLivreStatus({{$livre->id}})"><i class='fe fe-check'></i></button>
-                               {{-- <a href=" {{route('admin.categorie_status_update',$categorie->id)}}" class="btn btn-primary" > --}}
-
-
-                               {{-- </a> --}}
+                                   <button class="btn btn-primary" onclick="editFormationStatus({{$formation->id}})"><i class='fe fe-check'></i></button>
                                </div>
                             @else
                                <div class="custom-control custom-switch">
                                {{-- <a href=" {{route('admin.categorie_status_update',$categorie->id)}}" class="btn btn-danger"> --}}
-                               <button class="btn btn-danger" onclick="editLivreStatus({{$livre->id}})"><i class='fe fe-power'></i></button>
-
-                                       {{-- <label>Désactivé</label> --}}
-                                   {{-- </a> --}}
+                               <button class="btn btn-danger" onclick="editFormationStatus({{$formation->id}})"><i class='fe fe-power'></i></button>
                                </div>
                            @endif
                          </td>
-
-                          <td>
-                                <button class="btn btn-primary livreEdit" onclick="editLivre({{$livre->id}})">  <i class="fe fe-edit"></i></button>
+                         <td>
+                                <button class="btn btn-primary formationEdit" onclick="editFormation({{$formation->id}})" >  <i class="fe fe-edit"></i></button>
                                 <b></b>
-                                <button class="btn btn-warning"  onclick="deleteLivre({{$livre->id}})"> <i class="fe fe-trash-2"></i></button>
+                                <button class="btn btn-warning"  onclick="deleteFormation({{$formation->id}})"> <i class="fe fe-trash-2"></i></button>
                           </td>
+                         
                         </tr>
                         @endforeach
+                        @endif
                       </tbody>
                     </table>
                   </div>
@@ -243,17 +226,17 @@ Positive Internet Solution | Liste Livre
 
 
      <!-- Modification modal -->
-     <div class="modal fade" id="livreEdit" tabindex="-1" role="dialog" aria-labelledby="varyModalLabel" aria-hidden="true">
+     <div class="modal fade" id="formationEdit" tabindex="-1" role="dialog" aria-labelledby="varyModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="varyModalLabel">Edite Livre</h5>
+              <h5 class="modal-title" id="varyModalLabel">Edite Fromation</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
-              <form id="livreEditForm"  class="forms-sample" action="" enctype="multipart/form-data">
+              <form id="formationEditForm"  class="forms-sample" action="" enctype="multipart/form-data">
                 @csrf
                  @method('PUT')
                 <div class="form-group">
@@ -289,21 +272,8 @@ Positive Internet Solution | Liste Livre
                       </div>
                     </div>
                   </div>
-                  <div class="form-group">
-                      <label for="role">categories</label>
-                        <select class="custom-select" id="custom-select" name='categorie'>
-                            <option selected id="ecategorie"></option>
-                            @foreach($categories as $categorie)
-                            <option value="{{$categorie->id}}">{{$categorie->categorie_name}}</option>
-                            @endforeach
-                            
-                        </select>
-                    </div>
-                  {{-- <div class="form-group mb-3">
-                    <label for="validationTextarea1">description</label>
-                    <textarea class="form-control" id="edescription" placeholder="Take a note here" required="" rows="3" type="text" class="form-control @error('description') is-invalid @enderror" name="description" value="{{ old('description') }}" required autocomplete="description" autofocus placeholder="description" ></textarea>
-                    <div class="invalid-feedback"> Please enter a message in the textarea. </div>
-                  </div> --}}
+                  
+                 
                   <div class="row mb-4">
                     <div class="col-md-12">
                       <div class="card shadow">
@@ -339,26 +309,19 @@ Positive Internet Solution | Liste Livre
         </div>
       </div>
 
-
-
-
-
     </main> <!-- main -->
   </div>
 
 @endsection
 
-@push('livre_status')
+@push('formation_status')
 
 <script>
-
-
-        function editLivreStatus(id){
-           //var table = $('#datatable').DataTable();
-            $.get('livreOne/'+id, function(livre){
-                $("#id").val(livre.id);
+        function editFormationStatus(id){
+          $.get('formationOne/'+id, function(formation){
+                $("#id").val(formation.id);
                 $.ajax({
-                    url:"{{route("admin.livre_status_update", "id")}}",
+                    url:"{{route("admin.formation_status_update", "id")}}",
                     type:'GET',
                     data:{
                         id:id,
@@ -373,24 +336,21 @@ Positive Internet Solution | Liste Livre
                 });
             })
         }
-
-
-        function editLivre(id){
-           //var table = $('#datatable').DataTable();
-            $.get('livreOne/'+id, function(livre){
-                $("#id").val(livre.id);
-                $("#ename").val(livre.livre_nom);
-                $("#eauteur").val(livre.livre_auteur);
-                $("#eprix_num").val(livre.livre_prix_version_num);
-                $("#eprix_pap").val(livre.livre_prix_version_pap);
-                $("#eprix_promo").val(livre.livre_prix_promo);
-                $("#enbrpage").val(livre.livre_nb_page);
-                $("#edate_sortie").val(livre.livre_date_sortie);
-                $("selected").val(livre.livre_auteur);
-                $('#summary-ckeditor').val(livre.livre_description);
-                $("#livreEdit").modal('toggle');
+        function editFormation(id){
+         $.get('formationOne/'+id, function(formation){
+                $("#id").val(formation.id);
+                $("#ename").val(formation.titre_fromation);
+                $("#eauteur").val(formation.livre_auteur);
+                $("#eprix_num").val(formation.livre_prix_version_num);
+                $("#eprix_pap").val(formation.livre_prix_version_pap);
+                $("#eprix_promo").val(formation.livre_prix_promo);
+                $("#enbrpage").val(formation.livre_nb_page);
+                $("#edate_sortie").val(formation.livre_date_sortie);
+                $("selected").val(formation.livre_auteur);
+                $('#summary-ckeditor').val(formation.livre_description);
+                $("#formationEdit").modal('toggle');
             })
-            $("#livreEditForm").submit(function(e){
+            $("#formationEditForm").submit(function(e){
                 e.preventDefault();
                 let user_id =$('#user_id').val();
                 let name = $('#ename').val();
@@ -406,7 +366,7 @@ Positive Internet Solution | Liste Livre
                 let _token= $("input[name=_token]").val();
 
                 $.ajax({
-                    url:"{{route("admin.livreUpdate")}}",
+                    url:"{{route("admin.formationUpdate")}}",
                     type:'PUT',
                     data:{
                         id:id,
@@ -430,8 +390,8 @@ Positive Internet Solution | Liste Livre
                         $('#id'+response.id+'td:nth-child(1)').text(response.name);
                         toastr.success(response.msg);
 
-                        $("#livreEditForm")[0].reset();
-                        $("#livreEdit").modal('toggle');
+                        $("#formationEditForm")[0].reset();
+                        $("#formationEdit").modal('toggle');
                     }
 
                 });
@@ -439,42 +399,40 @@ Positive Internet Solution | Liste Livre
             });
         }
 
-        function deleteLivre(id){
+        function deleteFormation(id){
+          $.get('formationOne/'+id, function(formation){
+              let id = formation.id;
+              let formation_titre = formation.titre_fromation;
+              let url = '<?= route("admin.formationDelete") ?>';
+              // let _token= $("input[name=_token]").val();
 
-$.get('livreOne/'+id, function(livre){
-    let id = livre.id;
-    let livre_name = livre.livre_nom;
-    let url = '<?= route("admin.livreDelete") ?>';
-    // let _token= $("input[name=_token]").val();
+              swal.fire({
+                  title:'Etes vous sur?',
+                  html: 'vous etes sur le point de <b>Supprimer</b> la categorie: <b>'+formation_titre+'</b>',
+                  showCancelButton:true,
+                  showCloseButton:true,
+                  cancelButtonText:'Annulez',
+                  confirmButtonText:'Oui,validez',
+                  cancelButtonColor: '#28a745',
+                  confirmButtonColor: '#007bff',
+                  width:300,
+                  allowOutSideClick:false,
+              }).then(function(result){
+                  if(result.value){
+                      $.post(url,{id:id}, function(data){
+                          if(data.code == 1){
+                              // $('#categtable').DataTable().ajax.reload(null,false);
+                              toastr.success(data.msg);
+                              location.reload();
+                          }else{
+                              toastr.error(data.msg);
+                          }
+                      },'json');
+                  }
+              });
 
-    swal.fire({
-        title:'Etes vous sur?',
-        html: 'vous etes sur le point de <b>Supprimer</b> la categorie: <b>'+livre_name+'</b>',
-        showCancelButton:true,
-        showCloseButton:true,
-        cancelButtonText:'Annulez',
-        confirmButtonText:'Oui,validez',
-        cancelButtonColor: '#28a745',
-        confirmButtonColor: '#007bff',
-        width:300,
-        allowOutSideClick:false,
-    }).then(function(result){
-        if(result.value){
-            $.post(url,{id:id}, function(data){
-                if(data.code == 1){
-                    // $('#categtable').DataTable().ajax.reload(null,false);
-                    toastr.success(data.msg);
-                    location.reload();
-                }else{
-                    toastr.error(data.msg);
-                }
-            },'json');
+          });
         }
-    });
-
-});
-
-}
 </script>
 
 @endpush

@@ -228,7 +228,7 @@ Positive Internet Solution | Accueil
                     vous pouvez aisément appliquer.
                 </p>
                 <br>
-                <a href="{{url('books/crypto-fortune-tome1')}}" class="btn_cta" style="font-size: 1em; font-weight: 700;">RECEVOIR MON EXEMPLAIRE GRATUIT</a>
+                <a href="{{route('livre')}}" class="btn_cta" style="font-size: 1em; font-weight: 700;">RECEVOIR MON EXEMPLAIRE GRATUIT</a>
             </div>
             <br>
             <p>.</p>

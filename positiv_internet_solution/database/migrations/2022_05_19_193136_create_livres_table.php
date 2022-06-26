@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string('livre_fichier')->nullable();
             $table->string('livre_auteur')->nullable();
             $table->boolean('livre_status')->default(0);
+            $table->foreignId('categories_id')->constrained();
             $table->integer('user_id');
             $table->timestamps();
         });

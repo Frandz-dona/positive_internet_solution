@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Categorie;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Livre extends Model
 {
@@ -22,7 +23,13 @@ class Livre extends Model
         'livre_auteur',
         'livre_status',
         'user_id',
-        'categorie_id'
+        'categorie_id',
 
     ];
+
+    public function categories()
+    {
+        return $this->belongsTo(Categorie::class);
+    }
+
 }

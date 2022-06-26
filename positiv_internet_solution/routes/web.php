@@ -1,11 +1,12 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Client\ClientController;
-use App\Http\Controllers\Admin\AdminController;
-use App\Http\Controllers\Admin\CategorieController;
-use App\Http\Controllers\Admin\LivreController;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\LivreController;
+use App\Http\Controllers\Client\ClientController;
+use App\Http\Controllers\Admin\CategorieController;
+use App\Http\Controllers\Admin\FormationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -82,6 +83,15 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::get('/livre_status_update/{id}',[LivreController::class, 'status_update'])->name('livre_status_update');
         Route::put('/livreUpdate', [LivreController::class, 'livreUpdate'])->name('livreUpdate');
         Route::post('/livreDelete', [LivreController::class,'livreDelete'])->name('livreDelete');
+
+        //formationtion
+        Route::get('/formation_liste', [FormationController::class, 'index'])->name('formation_liste');
+        Route::get('/formation_ajouter', [FormationController::class, 'create'])->name('formation_ajout');
+        Route::post('/formation_create', [FormationController::class, 'store'])->name('store_formation');
+        Route::get('/formationOne/{id}', [FormationController::class, 'getFormationById'])->name('formationOne');
+        Route::get('/formation_status_update/{id}',[FormationController::class, 'status_update'])->name('formation_status_update');
+        Route::put('/formationUpdate', [FormationController::class, 'formationUpdate'])->name('formationUpdate');
+        Route::post('/formationDelete', [FormationController::class,'formationDelete'])->name('formationDelete');
     });
 });
 

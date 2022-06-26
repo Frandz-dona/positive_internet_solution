@@ -175,10 +175,10 @@
                 </a>
                 <ul class="collapse list-unstyled pl-4 w-100" id="formation">
                   <li class="nav-item">
-                    <a class="nav-link pl-3" href="./table_basic.html"><span class="ml-1 item-text">Liste</span></a>
+                    <a class="nav-link pl-3" href=" {{ route('admin.formation_liste') }}"><span class="ml-1 item-text">Liste</span></a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link pl-3" href="./table_advanced.html"><span class="ml-1 item-text">Ajout</span></a>
+                    <a class="nav-link pl-3" href=" {{route('admin.formation_ajout')}} "><span class="ml-1 item-text">Ajout</span></a>
                   </li>
 
                 </ul>
@@ -1187,6 +1187,8 @@
     @stack('admin')
     @stack('livre')
     @stack('livre_status')
+    @stack('formation')
+    @stack('formation_status')
 
   </body>
 </html>

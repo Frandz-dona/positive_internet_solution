@@ -101,7 +101,7 @@ dona
 							</div>
 						</div>
 						<hr>
-						@if(1==2)
+						@if(1==1)
 						<form action="" method="post">
 							@csrf
 							<input type="hidden" name="id_book" value="">
@@ -123,7 +123,7 @@ dona
 
 						@endif
 						<?php
-						echo 'description';
+						echo substr("former vous et devenez financierement autonome😛", 0, 1000);
 						$cpm_amount = 100;
 						?>
 						<hr>

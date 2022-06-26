@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Livre;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Categorie extends Model
 {
@@ -14,4 +15,9 @@ class Categorie extends Model
         'categorie_status',
         'user_id',
     ];
+
+    public function livre()
+    {
+        return $this->hasMany(Livre::class);
+    }
 }
