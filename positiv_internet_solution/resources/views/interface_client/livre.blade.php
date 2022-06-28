@@ -47,16 +47,16 @@ Positive Internet Solution | Crypto Fortune
             @if($livres)
             @foreach ($livres as $livre)
             <div class="col-md-4 col-sm-6 col-xs-12">
-                <a href="{{route('livre_detail')}} ">
+                <a href="{{route('livre_detail', $livre->id)}} ">
                     <div class="single-team one default">
                         <!-- Team Head -->
                         <div class="t-head">
-                            <a href="{{route('livre_detail')}}">
-                                <img src="/storage/files/{{$livre->livre_image}}" alt="">
+                            <a href="{{route('livre_detail', $livre->id)}}">
+                                <img src="/Imagelivre/{{$livre->livre_image}}" alt="">
                             </a>
                             <div class="t-hover">
                                 <ul class="t-social">
-                                    <li><a href="{{route('livre_detail')}}"><i class="fa fa-eye"></i></a></li>
+                                    <li><a href="{{route('livre_detail',$livre->id)}}"><i class="fa fa-eye"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -66,11 +66,11 @@ Positive Internet Solution | Crypto Fortune
                                 <a href="#team1"><i class="fa fa-share"></i></a>
                             </div>
                             @if($livre->livre_prix_promo)
-                            <h2 class="t-name" style="text-align: left;"><a href="{{route('livre_detail')}}" style="color: #353535;"> {{$livre->livre_prix_promo}}€</a></h </a></h2>
+                            <h2 class="t-name" style="text-align: left;"><a href="{{route('livre_detail', $livre->id)}}" style="color: #353535;"> {{$livre->livre_prix_promo}}€</a></h </a></h2>
                             @else
-                            <h2 class="t-name" style="text-align: left;"><a href="{{route('livre_detail')}}" style="color: #353535;"> {{$livre->livre_prix_version_pap}} €</a></h2>
+                            <h2 class="t-name" style="text-align: left;"><a href="{{route('livre_detail', $livre->id)}}" style="color: #353535;"> {{$livre->livre_prix_version_pap}} €</a></h2>
                             @endif
-                            <p class="what" style="margin-top: 5px;"><a href="{{route('livre_detail')}}" style="color: #353535;"><?php echo substr($livre->livre_description, 0, 1000); ?>...</a></p>
+                            <p class="what" style="margin-top: 5px;"><a href="{{route('livre_detail', $livre->id)}}" style="color: #353535;"><?php echo substr($livre->livre_description, 0, 1000); ?>...</a></p>
                             <div class="team-kpi-stars">
                                 <i class="fa fa-star" style=" color: #FFA300;"></i>
                                 <i class="fa fa-star" style=" color: #FFA300;"></i>
@@ -186,98 +186,7 @@ Positive Internet Solution | Crypto Fortune
         
     </div>
 
-     <!-- Start Blog -->
-			<section id="blog-main" class="blog-main archive single section">
-				<div class="container">
-					<div class="row">
-						<div class="blog-main">
-							<div class="col-md-12 col-sm-12 col-xs-12">
-								<div class="row">
-									{{-- <div class="col-md-8 col-sm-12 col-xs-12">
-										<div class="blog-comments" style="none">
-											<h2>Comments (23)</h2>
-											<div class="comments-body">
-												<!-- Single Comments -->
-												<div class="single-comments">
-													<div class="main">
-														<div class="head">
-															<img src="{{asset('client/images/author.jpg')}}" alt="#"/>
-														</div>
-														<div class="body">
-															<h4>John Shakil<span class="meta">June 05, 2017</span></h4>
-															<p>Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas <a href="#"><i class="fa fa-reply"></i>replay</a></p>
-														</div>
-													</div>
-													<div class="comment-list">
-														<div class="head">
-															<img src="{{asset("client/images/author2.jpg")}}" alt="#"/>
-														</div>
-														<div class="body">
-															<h4>Smith Ron<span class="meta">Sep 20, 2017</span></h4>
-															<p>Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas <a href="#"><i class="fa fa-reply"></i>replay</a></p>
-														</div>
-													</div>
-												</div>
-												<!--/ End Single Comments -->
-
-												<!-- Single Comments -->
-												<div class="single-comments">
-													<div class="main">
-														<div class="head">
-															<img src="{{asset('client/images/author3.jpg')}}" alt="#"/>
-														</div>
-														<div class="body">
-															<h4>Frase Rimu<span class="meta">June 05, 2017</span></h4>
-															<p>Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas <a href="#"><i class="fa fa-reply"></i>replay</a></p>
-														</div>
-													</div>
-												</div>
-												<!--/ End Single Comments -->
-											</div>
-										</div>
-									</div> --}}
-
-									<div class="col-md-12 col-sm-12 col-xs-12">
-										<div class="comments-form">
-											<h2>COMMENTEZ</h2>
-											<!-- Contact Form -->
-											<form class="form" method="post" action="">
-												<div class="row">
-													<div class="col-md-6">
-														<div class="form-group">
-															<i class="fa fa-user"></i>
-															<input type="text" name="name" placeholder="Full Name" required="required">
-														</div>
-													</div>
-													<div class="col-md-6">
-														<div class="form-group">
-															<i class="fa fa-envelope"></i>
-															<input type="email" name="email" placeholder="Your Email" required="required">
-														</div>
-													</div>
-													<div class="col-md-12">
-														<div class="form-group">
-															<i class="fa fa-pencil"></i>
-															<textarea name="message" rows="7" placeholder="Type Your Message Here" ></textarea>
-														</div>
-													</div>
-													<div class="col-md-12">
-														<div class="form-group button">
-															<button type="submit" class="button primary"><i class="fa fa-send"></i>Submit</button>
-														</div>
-													</div>
-												</div>
-											</form>
-											<!--/ End Contact Form -->
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-    	<!--/ End Blog -->
+     
 </section>
 
 <!-- Start Call-To-Action -->

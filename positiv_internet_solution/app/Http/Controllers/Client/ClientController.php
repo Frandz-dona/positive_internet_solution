@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Client;
 
 use App\Models\Livre;
+use App\Models\Formation;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -25,10 +26,9 @@ class ClientController extends Controller
 
     public function livre()
     {
-        $livres = Livre::all();
+        $livres = Livre::where('livre_status', 1)
+                ->get();
         return view("interface_client.livre", compact('livres'));
-
-       
     }
 
     public function affiliation()
@@ -38,7 +38,9 @@ class ClientController extends Controller
 
     public function formation()
     {
-        return view('interface_client.formation');
+        $formations = Formation::where('status_formation', 1)
+                        ->get();
+        return view('interface_client.formation', compact('formations'));
     }
 
     public function a_propos()
@@ -71,9 +73,11 @@ class ClientController extends Controller
         return view('interface_client.crypto_actu');
     }
 
-    public function livre_detail()
+    public function livre_detail($id)
     {
-        
-        return view('interface_client.livre_details');
+        $livre = Livre::find($id);
+        return view('interface_client.livre_details', compact('livre'));
     }
+
+    
 }

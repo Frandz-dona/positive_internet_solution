@@ -59,12 +59,10 @@ class FormationController extends Controller
         if(!$validator){
             return response()->json(['code'=>0, 'error'=>$validator->errors()->toArray()]);
         }else{
-            $path= 'fichier/';
+            
             $file_image= $request->file('photo_couverture_formation');
             $file_name_image= "images".time().'_'.$file_image->getClientOriginalName();
-
-            //$upload = $file->storeAs($path, $file_name);
-            $upload_image = $file_image->storeAs($path, $file_name_image, 'public');
+            $upload_image = $file_image-> move(public_path('Imageformation'), $file_name_image);
 
             if($upload_image){
 

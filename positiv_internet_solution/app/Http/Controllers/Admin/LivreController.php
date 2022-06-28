@@ -64,15 +64,14 @@ class LivreController extends Controller
         if(!$validator){
             return response()->json(['code'=>0, 'error'=>$validator->errors()->toArray()]);
         }else{
-            $path= 'files/';
+
             $file_image= $request->file('image_principale');
             $file_fichier= $request->file('fichier_livre');
             $file_name_image= "images".time().'_'.$file_image->getClientOriginalName();
             $file_name_fichier= "images".time().'_'.$file_fichier->getClientOriginalName();
 
-            //$upload = $file->storeAs($path, $file_name);
-            $upload_image = $file_image->storeAs($path, $file_name_image, 'public');
-            $upload_fichier = $file_fichier->storeAs($path, $file_name_fichier, 'public');
+            $upload_image = $file_image-> move(public_path('Imagelivre'), $file_name_image);
+            $upload_fichier = $file_fichier-> move(public_path('fichierlivre'), $file_name_fichier);
 
             if($upload_fichier && $upload_image){
 

@@ -39,13 +39,9 @@ dona
 				<div class="col-md-4 col-sm-12 col-xs-12">
 					<div class="project-sidebar">
 						<div class="single-sidebar project-info">
-							@if('nom' == "crypto-fortune-tome1")
-							<img src="{{asset('pis_assets/images/livres/m1.png')}}" alt="" />
-							@elseif('do' == "crypto-fortune-tome2")
-							<img src="{{asset('pis_assets/images/livres/m2.png')}}" alt="" />
-							@else
-							<img  src="{{asset('client/images/academi.jpg')}}"  alt="">
-							@endif
+							
+							<img src="/Imagelivre/{{$livre->livre_image}}" alt="" />
+							
 						</div>
 						<div class="single-sidebar brochure">
 							<!-- Single Widget -->
@@ -58,7 +54,7 @@ dona
 				<div class="col-md-8">
 					<div class="project-content">
 						<?php setlocale(LC_TIME, 'fr_FR.utf8', 'fra'); ?>
-						<h2>nom2</h2>
+						<h2> {{$livre->livre_nom}} </h2>
 						@if ($errors->any())
 						<div class="alert alert-danger">
 							<div class="loading">Erreur</div>
@@ -89,7 +85,7 @@ dona
 											<p>|</p>
 										</li>
 										<li>
-											<p> de <a href="#"></a> (Auteur)</p>
+											<p> de <a href="#"></a> {{$livre->livre_auteur}} (Auteur)</p>
 										</li>
 									</ul>
 									<i class="fa fa-star" style=" color: #FFA300;"></i>
@@ -101,7 +97,7 @@ dona
 							</div>
 						</div>
 						<hr>
-						@if(1==1)
+						@if(1==2)
 						<form action="" method="post">
 							@csrf
 							<input type="hidden" name="id_book" value="">
@@ -111,19 +107,19 @@ dona
 						<div class="project-commande-form" style="display: flex;">
 							<div class="commande-form">
 								<div class="form-fields">
-									<button type="submit" class="btn" data-toggle="modal" data-target="#eBookModal">Format PDF €</button>
+									<button type="submit" class="btn" data-toggle="modal" data-target="#eBookModal">Format PDF {{$livre->livre_prix_version_num}} €</button>
 								</div>
 							</div>
 							<div class="commande-form" style="margin-left: 10px;">
 								<div class="form-broche">
-									<button type="submit" class="btn" data-toggle="modal" data-target="#paperBookModal">Broché </button>
+									<button type="submit" class="btn" data-toggle="modal" data-target="#paperBookModal">Broché {{$livre->livre_prix_version_pap}} €</button>
 								</div>
 							</div>
 						</div>
 
 						@endif
 						<?php
-						echo substr("former vous et devenez financierement autonome😛", 0, 1000);
+						echo substr($livre->livre_description, 0, 1000);
 						$cpm_amount = 100;
 						?>
 						<hr>
@@ -133,17 +129,17 @@ dona
 									<li>
 										<h5>Nombre de page</h5>
 										<i class="fa fa-tags "></i>
-										<a href="#"></a>
+										<a href="#"> {{$livre->livre_nb_page}} </a>
 									</li>
 									<li>
 										<h5>Categorie</h5>
 										<i class="fa fa-tags "></i>
-										<a href="#"></a>
+										<a href="#"> {{$livre->categories->categorie_name}} </a>
 									</li>
 									<li>
 										<h5>Date de publication</h5>
 										<i class="fa fa-calendar"></i>
-										<a href="#"></a>
+										<a href="#"> {{$livre->livre_date_sortie}} </a>
 									</li>
 								</ul>
 							</div>
@@ -172,9 +168,7 @@ dona
 	</section> -->
 	<!--/ End Call-To-Action -->
 </div>
-@endsection
 
-@section('modal')
 
 <!-- Modal Ebook -->
 <div class="modal fade" id="eBookModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -188,8 +182,8 @@ dona
 			</div>
 			<div class="modal-body" style="text-align: center;">
 				<div id="modal-payment-img" style="display: flex; margin-bottom: 10px;">
-					<img src="{{asset('pis_assets/images/cryptocurrency.png')}}" alt="" class="img-responsive" width="50" height="50" id="payment-img">
-					<img src="{{asset('pis_assets/images/mobilemoney.png')}}" alt="" class="img-responsive" width="50" height="50" id="payment-img">
+					<img src="{{asset('client/images/cryptocurrency.png')}}" alt="" class="img-responsive" width="50" height="50" id="payment-img">
+					<img src="{{asset('client/images/mobilemoney.png')}}" alt="" class="img-responsive" width="50" height="50" id="payment-img">
 				</div>
 				<div id="payment-form">
 					<form action="" method="post" class="form-fields">
@@ -237,8 +231,8 @@ dona
 			</div>
 			<div class="modal-body" style="text-align: center;">
 				<div id="modal-payment-img" style="display: flex; margin-bottom: 10px;">
-					<img src="{{asset('pis_assets/images/cryptocurrency.png')}}" alt="" class="img-responsive" width="50" height="50" id="payment-img">
-					<img src="{{asset('pis_assets/images/mobilemoney.png')}}" alt="" class="img-responsive" width="50" height="50" id="payment-img">
+					<img src="{{asset('client/images/cryptocurrency.png')}}" alt="" class="img-responsive" width="50" height="50" id="payment-img">
+					<img src="{{asset('client/images/mobilemoney.png')}}" alt="" class="img-responsive" width="50" height="50" id="payment-img">
 				</div>
 				<div id="payment-form">
 					<form action="" method="post" class="form-fields">
@@ -252,7 +246,7 @@ dona
 						<input type="hidden" value="EUR" name="currency">
 
 						<!-- <input type="text" placeholder="Format PDF" disabled> -->
-						<button type="submit" class="btn">Payer par Crypto-monnaies }€</button>
+						<button type="submit" class="btn">Payer par Crypto-monnaies €</button>
 					</form>
 				</div>
 				<div id="payment-form">
@@ -274,5 +268,9 @@ dona
 		</div>
 	</div>
 </div>
-
 @endsection
+
+@push('modal_payement')
+
+
+@endpush

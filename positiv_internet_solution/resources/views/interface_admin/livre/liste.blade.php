@@ -58,18 +58,18 @@ Positive Internet Solution | Liste Livre
                           <td> {{$livre->livre_date_sortie}} </td>
                           <td>
                             <div class="avatar avatar-md">
-                                <img src="/storage/files/{{$livre->livre_image}}" alt="..." class="avatar-img rounded-circle">
+                                <img src="/Imagelivre/{{$livre->livre_image}}" alt="..." class="avatar-img rounded-circle">
                               </div>
                               {{-- {{$livre->livre_image}} --}}
                             </td>
                           <td>
-                               <a href="http://{{$livre->livre_fichier}}" target="_blank" rel="noopener noreferrer">
+                               <a href="http://fichierlivre/{{$livre->livre_fichier}}" target="_blank" rel="noopener noreferrer">
                                <div class="avatar avatar-md">
                                     <img src="./assets/avatars/fichier.jpg" alt="..." class="avatar-img rounded-circle">
                                 </div>
                                </a> 
                                
-                                {{-- {{$livre->livre_fichier}} --}}
+        
                           </td>
                           <td>
                             @if($livre->livre_status == 1)

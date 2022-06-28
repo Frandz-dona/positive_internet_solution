@@ -84,9 +84,6 @@ Positive Internet Solution | Ajout formation
                     <label>description</label>
                     <textarea cols="80" class="form-control" id="summary-ckeditor" name="description_formation" rows="10"></textarea>
                   </div> 
-
-                  
-
                   <button class="btn btn-primary" type="submit">Validez</button>
                 </form>
               </div> <!-- /.card-body -->

@@ -32,28 +32,34 @@ Positive Internet Solution | Nos formations
 	<!-- Start Project -->
 	<section id="projects" class="projects section single">
 		<div class="container">
-			<div class="row">
-				<div class="container col-xxl-8 px-4 py-5">
-					<div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-						<div class="col-lg-6">
-							<h1>formation nom</h1><br>
-							<p class="lead">description</p>
-							<ul style="display: flex; margin-top: 10px; margin-bottom: 30px;">
-								<li style="margin-right: 30px;"><i class="fa fa-graduation-cap"></i> Niveau </li>
-								<li><i class="fa fa-calendar"></i> date</li>
-								<li style="margin-left: 30px;"><i class="fa fa-money"></i>Euro</li>
-							</ul>
-							<div class="d-grid gap-2 d-md-flex justify-content-md-start">
-								<button class="btn_cta" onclick="clickDemarer()">COMMENCER</button>
-								<!-- <a class=" btn_cta_opacity">Télécharger le programme</a> -->
+			@if(!$formations)
+				<p>pas de formation</p>
+			@else
+				@foreach($formations as $formation)
+				<div class="row">
+					<div class="container col-xxl-8 px-4 py-5">
+						<div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+							<div class="col-lg-6">
+								<h1> {{$formation->titre_fromation}} </h1><br>
+								<p class="lead"> {{$formation->description_formation}} </p>
+								<ul style="display: flex; margin-top: 10px; margin-bottom: 30px;">
+									<li style="margin-right: 30px;"><i class="fa fa-graduation-cap"></i> 1Niveau </li>
+									<li><i class="fa fa-calendar"></i> {{$formation->date_debut_formation}} </li>
+									<li style="margin-left: 30px;"><i class="fa fa-money"> {{$formation->prix_formation}} </i>Euro</li>
+								</ul>
+								<div class="d-grid gap-2 d-md-flex justify-content-md-start">
+									<button class="btn_cta" onclick="clickDemarer()">COMMENCER</button>
+									<!-- <a class=" btn_cta_opacity">Télécharger le programme</a> -->
+								</div>
 							</div>
-						</div>
-						<div class="col-10 col-sm-8 col-lg-6">
-							<img src="{{asset('client/images/academi.jpg')}}" class="d-block mx-lg-auto img-fluid" alt="img" width="400" height="400" loading="lazy">
+							<div class="col-10 col-sm-8 col-lg-6">
+								<img src="/Imageformation/{{$formation->photo_couverture_formation}}" class="d-block mx-lg-auto img-fluid" alt="img" width="400" height="400" loading="lazy">
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+				@endforeach
+			@endif
 		</div>
 	</section>
 	<!--/ End Project -->

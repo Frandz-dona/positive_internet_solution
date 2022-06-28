@@ -36,7 +36,7 @@ Route::get('/positive_academy', [ClientController::class, 'positive_academy'])->
 Route::get('/mention_legale', [ClientController::class, 'mention_legale'])->name('mention_legale');
 Route::get('/condition_de_vente', [ClientController::class, 'condition_de_vente'])->name('condition_de_vente');
 Route::get('/crypto_actu', [ClientController::class, 'crypto_actu'])->name('crypto_actu');
-Route::get('/livre_detail', [ClientController::class, 'livre_detail'])->name('livre_detail');
+Route::get('/livre_detail/{id}', [ClientController::class, 'livre_detail'])->name('livre_detail');
 
 //end route client
 
