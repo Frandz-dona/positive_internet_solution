@@ -56,7 +56,7 @@ Positive Internet Solution | Liste formation
                           <td> {{$formation->auteur_formation}} </td>
                           <td>
                             <div class="avatar avatar-md">
-                                <img src="" alt="..." class="avatar-img rounded-circle">
+                                <img src="/imageformation/{{$formation->photo_couverture_formation}}" alt="..." class="avatar-img rounded-circle">
                               </div>
                               {{-- {{$livre->livre_image}} --}}
                             </td>

@@ -9,7 +9,7 @@ Positive Internet Solution | Positive Academy
 <meta property="og:title" content="Positive Internet Solution | En savoir plus sur nous">
 <meta property="og:description" content="Si vous souhaitez développer vos propres compétences en crypto-investissement et exploiter tout le potentiel de la technologie blockchain, c'est l'endroit qu'il vous faut.
    nous vous souhaitons une belle expérience.">
-<meta property="og:image" content='{{asset("client/images/img/logo/lg.png")}}'>
+<meta property="og:image" content='{{asset("client/images/logo/lg.png")}}'>
 @endsection
 
 @section('content')

@@ -26,11 +26,16 @@
     <link rel="stylesheet" href="{{asset("admin/css/app-light.css")}}" id="lightTheme" disabled>
     <link rel="stylesheet" href="{{asset('admin/css/app-dark.css')}}" id="darkTheme">
 
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+
     <!-- toastr -->
     <link rel="stylesheet" href=" {{asset('admin/assets/sweetalerte2/sweetalert2.min.css')}}">
      <link rel="stylesheet" href=" {{asset('admin/assets/toastr/toastr.min.css')}}">
      <link rel="stylesheet" href="{{asset('admin/css/dataTables.bootstrap4.css')}}">
-    <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+    {{-- <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script> --}}
+
+   
   </head>
 
   <body class="vertical  dark  ">
@@ -1177,12 +1182,19 @@
             }
         });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+    <script>
+      $(document).ready(function() {
+            $("#your_summernote").summernote();
+            $('.dropdown-toggle').dropdown();
+        });
+    </script>
     <!-- datatable -->
     {{-- <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
     <script src='https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js'></script> --}}
-    <script>
+    {{-- <script>
  	    CKEDITOR.replace( 'summary-ckeditor' );
-    </script>
+    </script> --}}
     @stack('categorie')
     @stack('admin')
     @stack('livre')

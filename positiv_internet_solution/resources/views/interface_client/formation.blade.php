@@ -9,7 +9,7 @@ Positive Internet Solution | Nos formations
 <meta property="og:title" content="Positive Internet Solution | En savoir plus sur nous">
 <meta property="og:description" content="Si vous souhaitez développer vos propres compétences en crypto-investissement et exploiter tout le potentiel de la technologie blockchain, c'est l'endroit qu'il vous faut.
    nous vous souhaitons une belle expérience.">
-<meta property="og:image" content='{{asset("client/images/img/logo/lg.png")}}'>
+<meta property="og:image" content='{{asset("client/images/logo/lg.png")}}'>
 @endsection
 
 @section('content')
@@ -35,30 +35,36 @@ Positive Internet Solution | Nos formations
 			@if(!$formations)
 				<p>pas de formation</p>
 			@else
-				@foreach($formations as $formation)
+				
 				<div class="row">
-					<div class="container col-xxl-8 px-4 py-5">
-						<div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-							<div class="col-lg-6">
-								<h1> {{$formation->titre_fromation}} </h1><br>
-								<p class="lead"> {{$formation->description_formation}} </p>
-								<ul style="display: flex; margin-top: 10px; margin-bottom: 30px;">
-									<li style="margin-right: 30px;"><i class="fa fa-graduation-cap"></i> 1Niveau </li>
-									<li><i class="fa fa-calendar"></i> {{$formation->date_debut_formation}} </li>
-									<li style="margin-left: 30px;"><i class="fa fa-money"> {{$formation->prix_formation}} </i>Euro</li>
-								</ul>
-								<div class="d-grid gap-2 d-md-flex justify-content-md-start">
-									<button class="btn_cta" onclick="clickDemarer()">COMMENCER</button>
-									<!-- <a class=" btn_cta_opacity">Télécharger le programme</a> -->
+					@foreach($formations as $formation)
+					<div class="col-md-4 col-sm-6 col-xs-12">
+							<div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+								<div class="col-lg-8 col-sm-6 col-lg-6">
+									<img src="/Imageformation/{{$formation->photo_couverture_formation}}" class="d-block mx-lg-auto img-fluid" alt="img" width="200" height="200" loading="lazy">
 								</div>
-							</div>
-							<div class="col-10 col-sm-8 col-lg-6">
-								<img src="/Imageformation/{{$formation->photo_couverture_formation}}" class="d-block mx-lg-auto img-fluid" alt="img" width="400" height="400" loading="lazy">
-							</div>
-						</div>
+								<div class="col-lg-6" style="margin-bottom: 50px;">
+									<h4> {{$formation->titre_fromation}} </h4>
+									{{-- <ul style="display: flex; margin-top: 12px; margin-bottom: 10px;">
+										<li style="margin-right: 10px;"><i class="fa fa-graduation-cap"></i> 1Niveau </li>
+										<li><i class="fa fa-calendar"></i> {{$formation->date_debut_formation}} </li>
+										<li style="margin-left: 10px;"><i class="fa fa-money"> {{$formation->prix_formation}} </i>Euro</li>
+									</ul> --}}
+									 <ul style="margin-bottom: 20px;">
+										<li style="margin-right: 10px;"><i class="fa fa-graduation-cap"></i> 1Niveau </li>
+										<li><i class="fa fa-calendar"></i> {{$formation->date_debut_formation}} </li>
+										<li style="margin-right: 10px;"><i class="fa fa-money"> {{$formation->prix_formation}} </i>Euro</li>
+									</ul>
+									<div class="d-grid gap-2 d-md-flex justify-content-md-start" >
+										<button class="btn_cta"> <a style="color: aliceblue" href=" {{route('formation_detail',$formation->id )}} ">COMMENCER</a> </button>
+									</div>
+								</div>
+							</div>				
 					</div>
+					@endforeach
 				</div>
-				@endforeach
+				
+
 			@endif
 		</div>
 	</section>

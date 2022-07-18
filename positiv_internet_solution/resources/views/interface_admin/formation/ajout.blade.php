@@ -82,8 +82,11 @@ Positive Internet Solution | Ajout formation
                   
                   <div class="form-group mb-3">
                     <label>description</label>
-                    <textarea cols="80" class="form-control" id="summary-ckeditor" name="description_formation" rows="10"></textarea>
+                    {{-- <textarea cols="80" class="form-control" id="summary-ckeditor" name="description_formation" rows="10"></textarea> --}}
+                    <textarea name="description_formation" id="your_summernote" class="form-control" rows="4"></textarea>
                   </div> 
+
+                  
                   <button class="btn btn-primary" type="submit">Validez</button>
                 </form>
               </div> <!-- /.card-body -->
@@ -142,7 +145,7 @@ Positive Internet Solution | Ajout formation
 
         });
 
-
+        
 
 </script>
 @endpush

@@ -79,5 +79,11 @@ class ClientController extends Controller
         return view('interface_client.livre_details', compact('livre'));
     }
 
+    public function formation_detail($id)
+    {
+        $formation = Formation::find($id);
+        return view('interface_client.formation_details', compact('formation'));
+    }
+
     
 }

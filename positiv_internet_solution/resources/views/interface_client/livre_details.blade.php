@@ -9,7 +9,7 @@ dona
 <meta property="og:title" content="Positive Internet Solution">
 <meta property="og:description" content="Si vous souhaitez développer vos propres compétences en crypto-investissement et exploiter tout le potentiel de la technologie blockchain, c'est l'endroit qu'il vous faut.
    nous vous souhaitons une belle expérience.">
-<meta property="og:image" content='{{asset("pis_assets/images/img/logo/lg.png")}}'>
+<meta property="og:image" content='{{asset("pis_assets/images/logo/lg.png")}}'>
 @endsection
 @section('content')
 <div id="app">
@@ -129,17 +129,18 @@ dona
 									<li>
 										<h5>Nombre de page</h5>
 										<i class="fa fa-tags "></i>
-										<a href="#"> {{$livre->livre_nb_page}} </a>
+										<span href="#"> {{$livre->livre_nb_page}} </span>
 									</li>
 									<li>
 										<h5>Categorie</h5>
 										<i class="fa fa-tags "></i>
-										<a href="#"> {{$livre->categories->categorie_name}} </a>
+										<span>{{$livre->categories->categorie_name}}</span>
+										
 									</li>
 									<li>
 										<h5>Date de publication</h5>
 										<i class="fa fa-calendar"></i>
-										<a href="#"> {{$livre->livre_date_sortie}} </a>
+										<span href="#"> {{$livre->livre_date_sortie}} </span>
 									</li>
 								</ul>
 							</div>
@@ -196,7 +197,7 @@ dona
 						<input type="hidden" value="" name="amount">
 						<input type="hidden" value="EUR" name="currency">
 						<!-- <input type="text" placeholder="Format PDF" disabled> -->
-						<button type="submit" class="btn">Payer par Crypto-monnaies €</button>
+						<button type="submit" class="btn">Payer par Crypto-monnaies {{$livre->livre_prix_version_num}}€</button>
 					</form>
 				</div>
 				<div id="payment-form">
@@ -246,7 +247,7 @@ dona
 						<input type="hidden" value="EUR" name="currency">
 
 						<!-- <input type="text" placeholder="Format PDF" disabled> -->
-						<button type="submit" class="btn">Payer par Crypto-monnaies €</button>
+						<button type="submit" class="btn">Payer par Crypto-monnaies {{$livre->livre_prix_version_pap}}€</button>
 					</form>
 				</div>
 				<div id="payment-form">
