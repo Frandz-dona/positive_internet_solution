@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Admin;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Auth;
+use App\Models\Client;
 use Illuminate\Support\Arr;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -74,6 +75,15 @@ class AdminController extends Controller
         return view('interface_admin.utilisateur.liste', compact('admins'));
 
     }
+
+     public function utilisateur_liste()
+    {
+        $utilisateurs = Client::all();
+        // dd($admins);
+        return view('interface_admin.users.liste', compact('utilisateurs'));
+
+    }
+
 
     public function getAdminById($id)
     {

@@ -58,7 +58,7 @@
                         <div class="col-md-3 col-sm-3 col-xs-12">
                             <!-- Logo -->
                             <div class="logo">
-                                <a href="index.html"><img src="{{asset("client/logo/logo_horizontal.png")}}" alt="logo" style='width:40%'></a>
+                                <a href="{{route('home')}}"><img src="{{asset("client/logo/logo_horizontal.png")}}" alt="logo" style='width:40%'></a>
                             </div>
                             <!--/ End Logo -->
                             <div class="mobile-nav"></div>
@@ -108,20 +108,30 @@
                                                 <li  class=" {{Request::is('livre') ? 'active' : '';}} "><a href="{{route('livre')}}">Livres</a></li>
                                                 <li  class=" {{Request::is('formation') ? 'active' : '';}} "><a href=" {{route('formation')}} ">Formations</a></li>
                                                 <li class=" {{Request::is('affiliation') ? 'active' : '';}} "><a href="{{route('affiliation')}}">Affiliation</a></li>
-                                                <li class=" {{Request::is('client_login') ? 'active' : '';}} "><a href="{{ route('client_login') }}">Se connecter</a></li>
-                                                {{-- <li><a href="#">Projects<i class="fa fa-angle-down"></i></a>
-                                                    <ul class="drop-down">
-                                                        <li><a href="projects.html">Projects</a></li>
-                                                        <li><a href="project-single.html">Project Single</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="#">Blogs<i class="fa fa-angle-down"></i></a>
-                                                    <ul class="drop-down">
-                                                        <li><a href="blog-grid.html">Blogs Grid</a></li>
-                                                        <li><a href="blog-single.html">Blog Single</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="contact.html">Contact</a></li> --}}
+                                                @if(!Auth::guard('client')->user())
+                                                    <li class=" {{Request::is('client_login') ? 'active' : '';}} "><a href="{{ route('client.client_login') }}">Se connecter</a></li>
+                                                @else
+                                                    <li><a href="#">Tableau de bord<i class="fa fa-angle-down"></i></a>
+                                                        <ul class="drop-down">
+                                                            <li><a href="{{ route('client.dashboard') }}">{{ __('Mes activités') }}</a></li>
+                                                            <li><a href="{{route('affiliation')}}">Affiliation</a></li>
+                                                            <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                            document.getElementById('logout-form').submit();">{{ __('Se deconnecter') }}</a>
+                                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                                                    @csrf
+                                                                </form>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                @endif
+
+                                                
+
+
+                                                
+                                                    
+                                                
+                                                
                                             </ul>
                                         </div>
                                     </nav>
@@ -254,6 +264,7 @@
 			<script src="{{asset("client/js/main.js")}}" type="text/javascript"></script>
             <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
             @stack('new_crypto')
+            @stack('script')
         </div>
 
     </body>

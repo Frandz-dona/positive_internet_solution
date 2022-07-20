@@ -35,8 +35,19 @@ Positive Internet Solution | Accueil
             </div>
             <!-- Contact Form -->
             <div class="col-md-6 col-sm-6 col-xs-12">
-                <form class="form" method="POST" action="">
+                <form class="form" method="POST" action="{{route('client.check')}}">
                     @csrf
+
+                    @if(Session::get('success'))
+                        <div class='alert alert-success'>
+                            {{Session::get('success')}}
+                        </div>
+                    @endif
+                    @if(Session::get('fail'))
+                        <div class='alert alert-success'>
+                            {{Session::get('fail')}}
+                        </div>
+                    @endif
                     <div class="form-group">
                         <label for="name" class="col-md-5 col-form-label text-md-right">{{ __('Votre Email') }}</label>
                         <div class="col-md-12" style="margin-bottom: 20px;">
@@ -73,7 +84,7 @@ Positive Internet Solution | Accueil
                                 {{-- {{ __('Mot de passe oublié?') }} --}}
                             {{-- </a> --}}
                             {{-- @endif --}}
-                            <a href="{{ route('client_register') }}" style="margin-left: 10px;">
+                            <a href="{{ route('client.client_register') }}" style="margin-left: 10px;">
                                  {{ __('Vous n\'avez pas de compte? Créer un compte.')}}
                             </a>
                         </div>

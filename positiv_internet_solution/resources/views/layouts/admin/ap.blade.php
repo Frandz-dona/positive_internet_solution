@@ -116,7 +116,7 @@
             <li class="nav-item dropdown">
               <a href="#forms" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
                 <i class="fe fe-users fe-16"></i>
-                <span class="ml-3 item-text">UTILISATEURS</span>
+                <span class="ml-3 item-text">ADMINS</span>
               </a>
               <ul class="collapse list-unstyled pl-4 w-100" id="forms">
                 <li class="nav-item">
@@ -140,6 +140,18 @@
               </ul>
             </li>
             @endif
+
+            <li class="nav-item dropdown">
+                <a href="#utilisateur" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
+                  <i class="fe fe-user-plus fe-16"></i>
+                  <span class="ml-3 item-text">UTILISATEURS</span>
+                </a>
+                <ul class="collapse list-unstyled pl-4 w-100" id="utilisateur">
+                  <li class="nav-item">
+                    <a class="nav-link pl-3" href="{{route('admin.utilisateur_liste') }} "><span class="ml-1 item-text">Liste</span></a>
+                  </li>
+                </ul>
+            </li>
 
             <li class="nav-item dropdown">
               <a href="#livres" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">

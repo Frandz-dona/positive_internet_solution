@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->string('client_nom');
             $table->string('pays');
-            $table->string('client_prenom');
             $table->string('email')->unique();
             $table->string('client_telephone');
             $table->boolean('client_status')->default(0);

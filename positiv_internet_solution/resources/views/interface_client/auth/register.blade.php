@@ -21,14 +21,26 @@ Positive Internet Solution | Accueil
         <div class="row">
             <!-- Contact Form -->
             <div class="col-md-7 col-sm-7 col-xs-12" style="text-align: left;">
-                <form class="form" method="POST" action="{{ route('register') }}">
+                <form class="form" method="POST" action="{{ route('client.create') }}">
                     @csrf
+
+                    @if(Session::get('success'))
+                    <div class='alert alert-success'>
+                        {{Session::get('success')}}
+                    </div>
+                    @endif
+                    @if(Session::get('fail'))
+                    <div class='alert alert-danger'>
+                        {{Session::get('fail')}}
+                    </div>
+                    @endif
+
                     <div class="form-group">
                         <label for="name" class="col-md-5 col-form-label text-md-right">{{ __('Votre nom et prénom(s)') }}</label>
                         <div class="col-md-12" style="margin-bottom: 20px;">
-                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required placeholder="Nom et prénom(s)" autofocus>
+                            <input id="" type="text" class="form-control @error('name') is-invalid @enderror" name="nom" value="{{ old('name') }}" required placeholder="Nom et prénom(s)" autofocus>
 
-                            @error('name')
+                            @error('nom')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -62,9 +74,9 @@ Positive Internet Solution | Accueil
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Pays') }}</label>
-                        <div class="col-md-12" style="margin-bottom: 20px;">
-                            <select name="country" id="country" class="form-select">
+                        <label for="name" class="col-md-6 col-form-label text-md-right">{{ __('Pays') }}</label>
+                        <div class="col-md-12">
+                            <select name="country" id="country" class="form-select form-control">
                                 <option value="">Choisissez votre pays</option>
                                 <option value="AF">Afghanistan</option>
                                 <option value="AX">Åland Islands</option>
@@ -319,6 +331,7 @@ Positive Internet Solution | Accueil
                             @enderror
                         </div>
                     </div><br>
+
                     <div class="form-group">
                         <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Mot de passe') }}</label>
                         <div class="col-md-12">
@@ -342,7 +355,7 @@ Positive Internet Solution | Accueil
                         <div class="col-md-12" style="margin-bottom: 20px;">
                             <input id="name" type="text" class="form-control @error('code_affiliation') is-invalid @enderror" name="code_affiliation" value="{{ old('code_affiliation') }}" placeholder="Si vous avez un code d'affiliation veuillez le saisir">
 
-                            @error('name')
+                            @error('code_affiliation')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -363,7 +376,7 @@ Positive Internet Solution | Accueil
                     <br>
                     <div class="form-group">
                         <div class="col-md-12">
-                            <a href="{{ route('client_login') }}" style="margin-left: 10px;">
+                            <a href="{{ route('client.client_login') }}" style="margin-left: 10px;">
                                 {{ __('Vous avez un compte? Se connecter.') }}
                             </a>
                         </div>

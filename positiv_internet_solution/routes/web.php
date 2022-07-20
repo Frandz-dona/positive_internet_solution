@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\LivreController;
 use App\Http\Controllers\Client\ClientController;
 use App\Http\Controllers\Admin\CategorieController;
 use App\Http\Controllers\Admin\FormationController;
+use App\Http\Controllers\Client\AuthClientController;
 
 /*
 |--------------------------------------------------------------------------
@@ -92,10 +93,27 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::get('/formation-status-update/{id}',[FormationController::class, 'status_update'])->name('formation_status_update');
         Route::put('/formationUpdate', [FormationController::class, 'formationUpdate'])->name('formationUpdate');
         Route::post('/formationDelete', [FormationController::class,'formationDelete'])->name('formationDelete');
+
+        //utilisateurs
+        Route::get('/utilisateur_liste', [AdminController::class, 'utilisateur_liste'])->name('utilisateur_liste');
+    });
+});
+
+// client
+Route::prefix('client')->name('client.')->group(function(){
+    Route::middleware(['guest:client'])->group(function(){
+    Route::view('/client-login','interface_client/auth.login')->name('client_login');
+    Route::view('/client-register', 'interface_client/auth.register')->name('client_register');
+    Route::post('/create',[AuthClientController::class,'create'])->name('create');
+    Route::post('/check', [AuthClientController::class,'check'])->name('check');
+    });
+        Route::middleware(['auth:client'])->group(function(){
+        Route::view('/client_home', 'interface_client/auth/dashboard')->name('dashboard');
+        Route::post('/logout', [AuthClientController::class, 'logout'])->name('logout');
+
     });
 });
 
 
 //client authentification
-Route::view('/client-login','interface_client/auth.login')->name('client_login');
-Route::view('/client-register', 'interface_client/auth.register')->name('client_register');
+
